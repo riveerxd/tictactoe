@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         printBoard();
+        initializeBoard();
 
         // Hra
         Scanner scanner = new Scanner(System.in);
@@ -24,6 +25,14 @@ public class Main {
             System.out.println();
         }
     }
+    private static void initializeBoard() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                board[i][j] = EMPTY;
+            }
+        }
+    }
+
 
 
 
