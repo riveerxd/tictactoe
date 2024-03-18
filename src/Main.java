@@ -10,9 +10,29 @@ public class Main {
         printBoard();
         initializeBoard();
 
-        // Hra
         Scanner scanner = new Scanner(System.in);
         boolean gameEnded = false;
+        while (!gameEnded) {
+            System.out.println("Hráč " + currentPlayer + ", zadej pozici (řádek sloupec): ");
+            int row = scanner.nextInt();
+            int col = scanner.nextInt();
+
+            if (isValidMove(row, col)) {
+                board[row][col] = currentPlayer;
+                if (isWinningMove(row, col)) {
+                    gameEnded = true;
+                    System.out.println("Hráč " + currentPlayer + " vyhrál!");
+                } else if (isBoardFull()) {
+                    gameEnded = true;
+                    System.out.println("Remíza!");
+                } else {
+                    currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                    printBoard();
+                }
+            } else {
+                System.out.println("Neplatný tah, zkuste znovu.");
+            }
+        }
         scanner.close();
     }
 
