@@ -33,6 +33,10 @@ public class Main {
         }
     }
 
+    private static boolean isValidMove(int row, int col) {
+        return row >= 0 && row < SIZE && col >= 0 && col < SIZE && board[row][col] == EMPTY;
+    }
+
 
 
 
