@@ -37,12 +37,24 @@ public class Main {
         return row >= 0 && row < SIZE && col >= 0 && col < SIZE && board[row][col] == EMPTY;
     }
 
-
-
-
-
-
+    private static boolean isBoardFull() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (board[i][j] == EMPTY) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
+
+
+
+
+
+
+
 
 
 
